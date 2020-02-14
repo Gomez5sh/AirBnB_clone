@@ -2,7 +2,7 @@
 """ Base module """
 import uuid
 from datetime import datetime
-
+import models
 
 class BaseModel:
     """ class for all other classes to inherit from """
@@ -27,3 +27,15 @@ class BaseModel:
         """ updates the public instance attribute updated_at with
         the current datetime """
         self.updated_at = datetime.now()
+
+    def to_drict(self):
+        """returns a dictionary containing all keys/values
+        of __dict__ of the instance."""
+        tdic = {}
+        tdic["__class__"] = self.__class__.__name__
+        for n, i in self.__dict__.items():
+            if isinstance(i, (datetime, )):
+                tdic[n] = i.isoformat()
+            else:
+                tdic[n] = i
+        return tdic
