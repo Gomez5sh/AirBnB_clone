@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Base module """
 import uuid
+import sys
 from datetime import datetime
 
 
@@ -13,15 +14,18 @@ class BaseModel:
             # each key of this dictionary is an attribute name
             # each value of this dictionary is the value of this attribute name
             for key, value in kwargs.items():
-                if updated_at == key:
+                if key == "updated_at":
                     # Convert string date to datetime object
                     # strptime (string parse time): Parse a string into a -
                     # datetime object given a corresponding format
                     self.updated_at = datetime.strptime(kwargs["updated_at"],
                                                         "%Y-%m-%dT%H:%M:%S.%f")
-                elif created_at == key:
+                elif key == "created_at":
                     self.created_at = datetime.strptime(kwargs["created_at"],
                                                         "%Y-%m-%dT%H:%M:%S.%f")
+                elif key == "__class__":
+                    # This happens because __class__ is not mandatory in output
+                    pass
                 else:
                     setattr(self, key, value)
         # Generate a random UUID
