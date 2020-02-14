@@ -28,7 +28,7 @@ class BaseModel:
         the current datetime """
         self.updated_at = datetime.now()
 
-    def to_drict(self):
+    def to_dict(self):
         """returns a dictionary containing all keys/values
         of __dict__ of the instance."""
         tdic = {}
