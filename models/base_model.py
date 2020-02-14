@@ -34,7 +34,7 @@ class BaseModel:
         tdic = {}
         tdic["__class__"] = self.__class__.__name__
         for n, i in self.__dict__.items():
-            if isinstance(i, (datetime, )):
+            if isinstance(i, datetime):
                 tdic[n] = i.isoformat()
             else:
                 tdic[n] = i
