@@ -7,14 +7,20 @@ from datetime import datetime
 class BaseModel:
     """ class for all other classes to inherit from """
     def __init__(self, *args, **kwargs):
-        """ Constructor """
+        """ Constructor and re-create an instance with
+        this dictionary representation"""
         if kwargs:
+            # each key of this dictionary is an attribute name
+            # each value of this dictionary is the value of this attribute name
             for key, value in kwargs.items():
                 if updated_at == key:
+                    # Convert string date to datetime object
+                    # strptime (string parse time): Parse a string into a -
+                    # datetime object given a corresponding format
                     self.updated_at = datetime.strptime(kwargs["updated_at"],
                                                         "%Y-%m-%dT%H:%M:%S.%f")
                 elif created_at == key:
-                    self.created_at = datetime.strftime(kwargs["created_at"],
+                    self.created_at = datetime.strptime(kwargs["created_at"],
                                                         "%Y-%m-%dT%H:%M:%S.%f")
                 else:
                     setattr(self, key, value)
