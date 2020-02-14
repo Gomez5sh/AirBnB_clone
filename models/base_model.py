@@ -6,8 +6,18 @@ import models
 
 class BaseModel:
     """ class for all other classes to inherit from """
-    def __init__(self, id='', created_at='', updated_at=''):
+    def __init__(self, *args, **kwargs):
         """ Constructor """
+        if kwargs:
+            for key, value in kwargs.items():
+                if updated_at == key:
+                    self.updated_at = datetime.strptime(kwargs["updated_at"],
+                                                        "%Y-%m-%dT%H:%M:%S.%f")
+                elif created_at == key:
+                    self.created_at = datetime.strftime(kwargs["created_at"],
+                                                        "%Y-%m-%dT%H:%M:%S.%f")
+                else:
+                    setattr(self, key, value)
         # Generate a random UUID
         self.id = str(uuid.uuid4())
         # assign with the current datetime when an instance is created
