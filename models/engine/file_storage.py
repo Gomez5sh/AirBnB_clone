@@ -46,5 +46,3 @@ class FileStorage:
                 inst_class = inst_dict['__class__']
                 if "BaseModel" in inst_dict['__class__']:
                     self.__objects[key] = BaseModel(des_json[key])
-                #if (des_json[key] == '__class__'):
-                #    type(self).__objects[key] = BaseModel(des_json[key])
