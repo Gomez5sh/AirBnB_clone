@@ -13,6 +13,7 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, args):
         """exit the program"""
         return True
+
     def empty_line(self):
         """ENTER shouldn’t execute anything"""
         pass

@@ -13,18 +13,19 @@ class FileStorage:
 
     def all(self):
         """ returns the dictionary __objects """
-        return (FileStorage.__objects)
+        return (self.__objects)
 
     def new(self, obj):
         """ sets in __objects the obj with key <obj class name>.id """
-        key = "{}.{}".format(obj.__class__.__name__, obj.id)
-        FileStorage.__objects[key] = obj
+        if obj:
+            key = "{}.{}".format(obj.__class__.__name__, obj.id)
+            self.__objects[key] = obj
 
     def save(self):
         """ serializes __objects to the JSON file (path: __file_path) """
         ser_dict = {}
         all_dict = FileStorage.__objects
-        with open(FileStorage.__file_path, 'w') as f:
+        with open(self.__file_path, 'w') as f:
             for value in all_dict.values():
                 key = "{}.{}".format(value.__class__.__name__, value.id)
                 ser_dict[key] = value.to_dict()
@@ -36,14 +37,14 @@ class FileStorage:
         exist, no exception should be raised) """
         # from models.base_model import BaseModel
         # Validate if file exists
-        if os.path.isfile(FileStorage.__file_path):
-            with open(FileStorage.__file_path, 'r') as f:
+        if os.path.isfile(self.__file_path):
+            with open(self.__file_path, 'r') as f:
                 des_json = json.load(f)
             for key in des_json.keys():
                 # search "__class__": "BaseModel"
                 inst_dict = des_json[key]
                 inst_class = inst_dict['__class__']
                 if "BaseModel" in inst_dict['__class__']:
-                    FileStorage.__objects[key] = BaseModel(des_json[key])
+                    self.__objects[key] = BaseModel(des_json[key])
                 #if (des_json[key] == '__class__'):
                 #    type(self).__objects[key] = BaseModel(des_json[key])
