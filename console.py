@@ -1,9 +1,11 @@
 #!/usr/bin/python3
+""" Program that contains the entry point of the command interpreter """
 import cmd
 
+
 class HBNBCommand(cmd.Cmd):
-    """init Command Prompt"""
-    prompt = "(hbnb)"
+    """ init Command Prompt """
+    prompt = "(hbnb) "
 
     def do_EOF(self, args):
         """CTRl-D to exit"""
@@ -11,9 +13,12 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_quit(self, args):
-        """exit the program"""
+        """Quit command to exit the program"""
         return True
 
-    def empty_line(self):
+    def emptyline(self):
         """ENTER shouldn’t execute anything"""
         pass
+
+if __name__ == '__main__':
+    HBNBCommand().cmdloop()
