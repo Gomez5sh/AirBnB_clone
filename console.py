@@ -52,15 +52,44 @@ class HBNBCommand(cmd.Cmd):
                     print("** no instance found **")
                 else:
                     print(storage.all()[ite])
-        except:
+        except IndexError:
             print("** instance id missing **")
 
     def do_destroy(self, line):
         """Deletes an instance based on the class name and id"""
+        if len(line) == 0:
+            print("** class name missing **")
+            return None
+        n = parse(line)
+        if ar[0] not in HBNBCommand.lavel:
+            print("** class doesn't exist **")
+            return None
+        try:
+            if n[1]:
+                ite = "{},{}".format(n[0], n[1])
+                if ite not in storage.all().keys():
+                    print("** no instance found **")
+                else:
+                    del storage.all()[ite]
+                    storage.save()
+        except IndexError:
+            print("** instance id missing **")
 
     def do_all(self, line):
         """Prints all string representation of
         all instances based or not on the class name."""
+        n = parse(line)
+        my_obj = []
+        if len(line) == 0:
+            for ite in storage.all().value():
+                my_obj.append(ite)
+            print my_obj
+        elif n[0] in HBNBCommand.lavel:
+            if n [0] in key:
+                my_obj.append(ite)
+            else:
+                print("** class doesn't exist **")
+
 
     def do_update(self, line)
     """Updates an instance based on the class name and id"""
