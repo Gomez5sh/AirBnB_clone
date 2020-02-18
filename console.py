@@ -70,23 +70,22 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, line):
         """Deletes an instance based on the class name and id"""
-        if len(line) == 0:
+        n = line.split()
+        if not line:
             print("** class name missing **")
             return None
-        n = line.split()
-        if ar[0] not in HBNBCommand.level:
+        elif (n[0] not in self.level):
             print("** class doesn't exist **")
             return None
-        try:
-            if n[1]:
-                ite = "{},{}".format(n[0], n[1])
-                if ite not in storage.all().keys():
-                    print("** no instance found **")
-                else:
-                    del storage.all()[ite]
-                    storage.save()
-        except IndexError:
+        elif len(n) == 1:
             print("** instance id missing **")
+        else:
+            key = "{}.{}".format(n[0], n[1])
+            if key not in storage.all().keys():
+                print("** no instance found **")
+            else:
+                del storage.all()[key]
+                storage.save()
 
     def do_all(self, line):
         """Prints all string representation of
