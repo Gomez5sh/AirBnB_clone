@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+
+
 """ Convert the dictionary representation to a JSON string """
 import json
 import os
