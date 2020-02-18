@@ -9,11 +9,12 @@ from models.city import City
 from models.review import Review
 from models.place import Place
 
+
 class HBNBCommand(cmd.Cmd):
     """ init Command Prompt """
     prompt = "(hbnb) "
-    level =  {"BaseModel", "City", "State"
-              "User", "Place", "Review", "Amenity"}
+    level = {"BaseModel", "City", "State"
+             "User", "Place", "Review", "Amenity"}
 
     def do_EOF(self, args):
         """CTRl-D to exit\n"""
@@ -91,11 +92,10 @@ class HBNBCommand(cmd.Cmd):
                 my_obj.append(ite)
             print(my_obj)
         elif n[0] in HBNBCommand.lavel:
-            if n [0] in key:
+            if n[0] in key:
                 my_obj.append(ite)
             else:
                 print("** class doesn't exist **")
-
 
     def do_update(self, line):
         """Updates an instance based on the class name and id"""
