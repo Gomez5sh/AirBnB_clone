@@ -8,7 +8,7 @@ Is a command interpreter and the main purpose is to manage, manipulate and acces
   - args/kwargs
   - datetime
 
-# Install
+## Install
 
 ```
 git clone https://github.com/julianchok25/AirBnB_clone.git
@@ -17,7 +17,7 @@ cd AirBnb_clone
 
 ```
 
-# CMD Commands
+## CMD Commands
 
 | Command | Description | Sample Usage
 | --- | --- | --- |
@@ -50,4 +50,6 @@ Quit command to exit the program
 PROMPT~>
 ```
 ## Authors:
-Julian Villegas & Emmanuel Gomez
+[Julian Villegas](https://twitter.com/julianchok25)
+
+[Emmanuel Gomez](https://twitter.com/Gomez5sh)
