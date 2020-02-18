@@ -8,6 +8,15 @@ Is a command interpreter and the main purpose is to manage, manipulate and acces
   - args/kwargs
   - datetime
 
+# Install
+
+```
+git clone https://github.com/julianchok25/AirBnB_clone.git
+
+cd AirBnb_clone
+
+```
+
 # CMD Commands
 
 | Command | Description | Sample Usage
