@@ -23,28 +23,28 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, line):
         """Create a instance by the user"""
         if len(line) == 0:
-            print ("** class name missing **")
+            print("** class name missing **")
         elif line not in HBNBCommand.classes:
             print("** class doesn't exist **")
         else:
             inst = eval(line)()
             inst.save()
-            print (inst.id)
+            print(inst.id)
 
     def do_show(self, line):
         if len(line) == 0:
-            print ("** class name missing **")
+            print("** class name missing **")
             return
         ar = parse(line)
 
         if ar[0] is not HBNBCommand.classes:
-            print ("** class doesn't exist **")
+            print("** class doesn't exist **")
             return
         try:
             if ar[1]:
                 n = "{}.{}".format(ar[0], ar[1])
                 if n is not in storage.all().key():
-                    print ("** no instance found **")
+                    print("** no instance found **")
                 else:
                     print storage.all()[n]
         except IndexError:
