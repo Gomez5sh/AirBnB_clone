@@ -41,7 +41,7 @@ class HBNBCommand(cmd.Cmd):
         if len(line) == 0:
             print("** class name missing **")
             return None
-        n = parse(line)
+        n = line.split()
         if ar[0] not in HBNBCommand.lavel:
             print("** class doesn't exist **")
             return None
@@ -60,7 +60,7 @@ class HBNBCommand(cmd.Cmd):
         if len(line) == 0:
             print("** class name missing **")
             return None
-        n = parse(line)
+        n = line.split()
         if ar[0] not in HBNBCommand.lavel:
             print("** class doesn't exist **")
             return None
@@ -78,7 +78,7 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, line):
         """Prints all string representation of
         all instances based or not on the class name."""
-        n = parse(line)
+        n = line.split()
         my_obj = []
         if len(line) == 0:
             for ite in storage.all().value():
