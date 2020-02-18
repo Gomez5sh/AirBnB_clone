@@ -8,6 +8,7 @@ from models.amenity import Amenity
 from models.city import City
 from models.review import Review
 from models.place import Place
+from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
@@ -45,22 +46,27 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, line):
         """Prints the string representation of
         an instance based on the class name and id"""
-        if len(line) == 0:
+        # First, separate in a list the commands by white space
+        n = line.split()
+        if not line:
             print("** class name missing **")
             return None
-        n = line.split()
-        if ar[0] not in HBNBCommand.lavel:
+        elif (n[0] not in self.level):
             print("** class doesn't exist **")
             return None
-        try:
-            if n[1]:
-                ite = "{},{}".format(n[0], n[1])
-                if ite not in storage.all().keys():
-                    print("** no instance found **")
-                else:
-                    print(storage.all()[ite])
-        except IndexError:
+        elif len(n) == 1:
             print("** instance id missing **")
+            return None
+        else:
+            # concatenate class_name and id with a dot
+            key = "{}.{}".format(n[0], n[1])
+            # search in file json the key saved in key
+            if key not in storage.all().keys():
+                print("** no instance found **")
+            else:
+                obj = storage.all()
+                # string representation of the instance with class name and id
+                print(obj[key])
 
     def do_destroy(self, line):
         """Deletes an instance based on the class name and id"""
