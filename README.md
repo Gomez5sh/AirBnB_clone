@@ -8,6 +8,14 @@ Is a command interpreter and the main purpose is to manage, manipulate and acces
   - args/kwargs
   - datetime
 
+# CMD Commands
+
+| Command | Description | Sample Usage
+| --- | --- | --- |
+| Help | Show all available commands | help  |
+| Quit | Exit to the prompt | quit |
+
+
 ## Usage of command interpreter
 Interactive Mode:
 1. Run program and show prompt with help command.
