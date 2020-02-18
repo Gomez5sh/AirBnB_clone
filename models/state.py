@@ -3,6 +3,6 @@
 from . base_model import BaseModel
 
 
-class State(BaseMOdel):
+class State(BaseModel):
     """ Define the state of the user """
     name = ''
