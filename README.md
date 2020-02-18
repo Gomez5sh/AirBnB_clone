@@ -17,7 +17,8 @@ Is a command interpreter and the main purpose is to manage, manipulate and acces
 | Create | Create a new object | create class |
 | Show | Retrieve an object from a file | show class name id |
 | All | Display all objects in class | all class |
-
+| Update | Update objects and attributes | update class id name key |
+| Destroy | Destroy specified object | destroy class |
 
 ## Usage of command interpreter
 Interactive Mode:
