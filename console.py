@@ -6,8 +6,8 @@ from models.base_model import BaseModel
 class HBNBCommand(cmd.Cmd):
     """ init Command Prompt """
     prompt = "(hbnb) "
-    lavel =  {"BaseModel", "City", "State"
-              "User", "Place", "Review", "Ameity"}
+    level =  {"BaseModel", "City", "State"
+              "User", "Place", "Review", "Amenity"}
 
     def do_EOF(self, args):
         """CTRl-D to exit\n"""
@@ -23,17 +23,17 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, line):
-        """Create a instance of BaseModel"""
-        if len(line) == 0:
+        """Create a new instance of BaseModel"""
+        if not line:
             print("** class name missing **")
             return None
-        elif line not in HBNBCommand.lavel:
-            print("** class name missing **")
+        elif (line not in self.level):
+            print("** class doesn't exist **")
             return None
         else:
             my_inst = eval(line + "()")
             my_inst.save()
-            print my_inst.id
+            print(my_inst.id)
 
     def do_show(self, line):
         """Prints the string representation of
