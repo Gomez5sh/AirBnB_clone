@@ -14,7 +14,7 @@ Is a command interpreter and the main purpose is to manage, manipulate and acces
 | --- | --- | --- |
 | Help | Show all available commands | help  |
 | Quit | Exit to the prompt | quit |
-
+| Create | Create a new object | create <class> |
 
 ## Usage of command interpreter
 Interactive Mode:
