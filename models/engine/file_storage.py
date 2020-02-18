@@ -3,6 +3,7 @@
 import json
 import os
 from models.base_model import BaseModel
+from models.user import User
 
 
 class FileStorage:
@@ -46,3 +47,5 @@ class FileStorage:
                 inst_class = inst_dict['__class__']
                 if "BaseModel" in inst_dict['__class__']:
                     self.__objects[key] = BaseModel(des_json[key])
+                if "User" in inst_dict['__class__']:
+                    self.__objects[key] = User(des_json[key])
