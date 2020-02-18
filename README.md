@@ -14,9 +14,9 @@ Is a command interpreter and the main purpose is to manage, manipulate and acces
 | --- | --- | --- |
 | Help | Show all available commands | help  |
 | Quit | Exit to the prompt | quit |
-| Create | Create a new object | create <class> |
-| Show | retrieve an object from a file | show <class name> id |
-
+| Create | Create a new object | create class |
+| Show | Retrieve an object from a file | show class name id |
+| All | Display all objects in class | all class |
 
 
 ## Usage of command interpreter
