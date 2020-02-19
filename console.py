@@ -118,15 +118,19 @@ class HBNBCommand(cmd.Cmd):
         elif len(n) == 1:
             print("** instance id missing **")
         elif len(n) == 2:
-            print("** attribute name missing **")
+            if ("{}.{}".format(n[0], n[1])) not in storage.all().keys():
+                print("** no instance found **")
+            else:
+                print("** attribute name missing **")
         elif len(n) == 3:
             print("** value missing **")
-        elif ("{}.{}".format(n[0], n[1])) not in storage.all().keys():
-            print("** no instance found **")
+        # elif ("{}.{}".format(n[0], n[1])) not in storage.all().keys():
+        #    print("** no instance found **")
         # elif (key not in obj.keys()):
         #    print("** no instance found **")
         else:
             key = "{}.{}".format(n[0], n[1])
+            # cast to the attribute type
             arg_type = type(eval(n[3]))
             attr = n[3].strip('\'\"')
             setattr(storage.all()[key], n[2], arg_type(attr))
