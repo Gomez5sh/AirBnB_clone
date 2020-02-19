@@ -126,9 +126,9 @@ class HBNBCommand(cmd.Cmd):
                 print("** value missing **")
             else:
                 # cast to the attribute type
-                arg_type = type(eval(n[3]))
-                attr = n[3].strip('\'\"')
-                setattr(storage.all()[key], n[2], arg_type(attr))
+                # arg_type = type(eval(n[3]))
+                # attr = n[3].strip('\'\"')
+                setattr(obj[key], n[2], n[3])
                 storage.save()
 
 if __name__ == '__main__':
