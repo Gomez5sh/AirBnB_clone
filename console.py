@@ -149,10 +149,6 @@ class HBNBCommand(cmd.Cmd):
             self.do_all(inst)
         elif n[1] == "count()":
             self.do_count(inst)
-        elif n[1][:4] == "show":
-            self.do_show(self.remove(inst))
-        elif n[1][:7] == "destroy":
-            self.do_destroy(self.remove(inst))
 
 if __name__ == '__main__':
     import sys
