@@ -93,15 +93,18 @@ class HBNBCommand(cmd.Cmd):
         n = line.split()
         obj_list = []
         if len(n) == 0:
-            for value in storage.all().values():
-                obj_list.append(value.__str__())
-            print(obj_list)
+            print([str(value) for key, value in storage.all().items()])
+            # for value in storage.all().values():
+            #    obj_list.append(value.__str__())
+            # print(str(obj_list))
         elif (n[0] not in self.level):
             print("** class doesn't exist **")
         else:
             for key, value in storage.all().items():
                 if n[0] in key:
                     obj_list.append(storage.all()[key].__str__())
+                else:
+                    return
             print(obj_list)
 
     def do_update(self, line):
@@ -110,7 +113,7 @@ class HBNBCommand(cmd.Cmd):
         Usage: update <class name> <id> <attribute name> "<attribute value>"""
         n = line.split()
         if len(n) == 0:
-            print("class name missing")
+            print("** class name missing **")
         elif (n[0] not in self.level):
             print("** class doesn't exist **")
         elif len(n) == 1:
