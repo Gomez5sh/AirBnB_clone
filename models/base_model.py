@@ -13,7 +13,7 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """ Constructor and re-create an instance with
         this dictionary representation"""
-        if kwargs:
+        if len(kwargs) > 0:
             # each key of this dictionary is an attribute name
             # each value of this dictionary is the value of this attribute name
             for key, value in kwargs.items():
@@ -21,23 +21,22 @@ class BaseModel:
                     # Convert string date to datetime object
                     # strptime (string parse time): Parse a string into a -
                     # datetime object given a corresponding format
-                    self.updated_at = datetime.strptime(value,
-                                                        "%Y-%m-%dT%H:%M:%S.%f")
+                    value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
                 elif key == "created_at":
-                    self.created_at = datetime.strptime(value,
-                                                        "%Y-%m-%dT%H:%M:%S.%f")
+                    value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
                 elif key == "__class__":
                     # This happens because __class__ is not mandatory in output
-                    pass
-                else:
-                    setattr(self, key, value)
-        # Generate a random UUID
-        self.id = str(uuid.uuid4())
-        # assign with the current datetime when an instance is created
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
-        # if it’s a new instance add a call to the method new(self) on storage
-        models.storage.new(self)
+                    continue
+
+                setattr(self, key, value)
+        else:
+            # Generate a random UUID
+            self.id = str(uuid.uuid4())
+            # assign with the current datetime when an instance is created
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
+            # if it’s a new instance add a call to the method new(self) on stge
+            models.storage.new(self)
 
     def __str__(self):
         """ overriding the __str__ method that returns a custom
