@@ -61,3 +61,5 @@ class test_filestore(unittest.TestCase):
             for n in r:
                 self.assertEqual(n, "{}")
         self.assertIs(file3.reload(), None)
+if __name__ = "__main__":
+    unittest.main()
