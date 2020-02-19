@@ -13,7 +13,7 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """ Constructor and re-create an instance with
         this dictionary representation"""
-        if kwargs:
+        if len(kwargs) > 0:
             # each key of this dictionary is an attribute name
             # each value of this dictionary is the value of this attribute name
             for key, value in kwargs.items():
@@ -28,9 +28,9 @@ class BaseModel:
                                                         "%Y-%m-%dT%H:%M:%S.%f")
                 elif key == "__class__":
                     # This happens because __class__ is not mandatory in output
-                    pass
-                else:
-                    setattr(self, key, value)
+                    continue
+
+                setattr(self, key, value)
         # Generate a random UUID
         self.id = str(uuid.uuid4())
         # assign with the current datetime when an instance is created
