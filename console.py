@@ -96,7 +96,7 @@ class HBNBCommand(cmd.Cmd):
             for value in storage.all().values():
                 my_obj.append(value.__str__())
             print(obj_list)
-        elif n[0] not in self.level:
+        elif (n[0] not in self.level):
             print("** class doesn't exist **")
         else:
             for key, value in storage.all().items():
@@ -105,8 +105,29 @@ class HBNBCommand(cmd.Cmd):
             print(obj_list)
 
     def do_update(self, line):
-        """Updates an instance based on the class name and id"""
-        pass
+        """Updates an instance based on the class name and id
+        by adding or updating attribute (save the change into the JSON file)
+        Usage: update <class name> <id> <attribute name> "<attribute value>"""
+        n = line.split()
+        obj = storage.all()
+        key = "{}.{}".format(n[0], n[1])
+        if not line:
+            print("class name missing")
+        elif (n[0] not in self.level):
+            print("** class doesn't exist **")
+        elif len(n) == 1:
+            print("** instance id missing **")
+        elif len(n) == 2:
+            print("** attribute name missing **")
+        elif len(n) == 3:
+            print("** value missing **")
+        elif (key not in obj.keys()):
+            print("** no instance found **")
+        else:
+            arg_type = type(eval(n[3]))
+            attr = n[3].strip('\'\"')
+            setattr(obj[key], n[2], arg_type(attr))
+            storage.all()[key].save()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
