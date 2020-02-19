@@ -21,10 +21,10 @@ class BaseModel:
                     # Convert string date to datetime object
                     # strptime (string parse time): Parse a string into a -
                     # datetime object given a corresponding format
-                    self.updated_at = datetime.strptime(kwargs["updated_at"],
+                    self.updated_at = datetime.strptime(value,
                                                         "%Y-%m-%dT%H:%M:%S.%f")
                 elif key == "created_at":
-                    self.created_at = datetime.strptime(kwargs["created_at"],
+                    self.created_at = datetime.strptime(value,
                                                         "%Y-%m-%dT%H:%M:%S.%f")
                 elif key == "__class__":
                     # This happens because __class__ is not mandatory in output
