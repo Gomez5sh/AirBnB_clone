@@ -14,8 +14,8 @@ from models import storage
 class HBNBCommand(cmd.Cmd):
     """ init Command Prompt """
     prompt = "(hbnb) "
-    level = {"BaseModel", "City", "State"
-             "User", "Place", "Review", "Amenity"}
+    level = ["BaseModel", "City", "State",
+             "User", "Place", "Review", "Amenity"]
 
     def do_EOF(self, args):
         """CTRl-D to exit\n"""
