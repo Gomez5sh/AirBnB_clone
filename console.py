@@ -93,10 +93,9 @@ class HBNBCommand(cmd.Cmd):
         n = line.split()
         obj_list = []
         if len(n) == 0:
-            print([str(value) for key, value in storage.all().items()])
-            # for value in storage.all().values():
-            #    obj_list.append(value.__str__())
-            # print(str(obj_list))
+            for value in storage.all().values():
+                obj_list.append(value.__str__())
+            print(obj_list)
         elif (n[0] not in self.level):
             print("** class doesn't exist **")
         else:
