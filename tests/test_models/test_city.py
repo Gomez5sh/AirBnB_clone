@@ -30,7 +30,7 @@ class test_Amenity(unittest.TestCase):
         self.assertEqual("to_dict" in dir(self.city1), True)
 
     def test_functions(self):
-        self.assertIsNotNone(City.__dict__)
+        self.assertIsNotNone(City.__doc__)
 
     def save_test(self):
         self.city1.save()
