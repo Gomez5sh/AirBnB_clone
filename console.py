@@ -151,4 +151,11 @@ class HBNBCommand(cmd.Cmd):
             self.do_count(inst)
 
 if __name__ == '__main__':
-    HBNBCommand().cmdloop()
+    import sys
+    # non-interactive mode
+    if len(sys.argv) > 1:
+        """ Since onecmd () takes a single string as input
+        the arguments of the program must be joined before passing them """
+        HBNBCommand().onecmd(' '.join(sys.argv[1:]))
+    else:
+        HBNBCommand().cmdloop()
