@@ -149,6 +149,11 @@ class HBNBCommand(cmd.Cmd):
             self.do_all(inst)
         elif n[1] == "count()":
             self.do_count(inst)
+        elif n[1].startswith('show'):
+            idsp = n[1].split('"')
+            # BaseModel valid_id, idsp[1] to get the id
+            line = inst + ' ' + idsp[1]
+            self.do_show(line)
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
