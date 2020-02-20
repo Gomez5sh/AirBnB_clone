@@ -30,6 +30,8 @@ cd AirBnb_clone
 | All | Display all objects in class | all class |
 | Update | Update objects and attributes | update class id name key |
 | Destroy | Destroy specified object | destroy class |
+| Count | Retrieve the number of instances of a class | class.count |
+
 
 ## Usage of command interpreter
 Interactive Mode:
@@ -51,6 +53,64 @@ Quit command to exit the program
 (hbnb) quit
 PROMPT~>
 ```
+## Usage Create:
+With the create command, a new instance is created
+
+```sh
+(hbnb) create BaseModel
+a45ac806-1c59-4392-99a4-b15327584938
+(hbnb)
+```
+
+## Usage All:
+With the all command, all instances are displayed, returning a serialized json (string).
+
+```sh
+(hbnb) all BaseModel a45ac806-1c59-4392-99a4-b15327584938
+["[BaseModel] (a45ac806-1c59-4392-99a4-b15327584938) {'id': 'a45ac806-1c59-4392-99a4-b15327584938', 'created_at': datetime.datetime(2020, 2, 20, 9, 33, 40, 732983), 'updated_at': datetime.datetime(2020, 2, 20, 9, 33, 40, 733064)}"]
+(hbnb)
+
+```
+ ## Usage Show:
+With the show command, the instance is displayed, returning a dictionary of the id instance.
+
+```sh
+(hbnb) show BaseModel a45ac806-1c59-4392-99a4-b15327584938
+[BaseModel] (a45ac806-1c59-4392-99a4-b15327584938) {'id': 'a45ac806-1c59-4392-99a4-b15327584938', 'created_at': datetime.datetime(2020, 2, 20, 9, 33, 40, 732983), 'updated_at': datetime.datetime(2020, 2, 20, 9, 33, 40, 733064)}
+(hbnb)
+
+ ```
+## Usage Update:
+With the update command, the attributes of the instances are updated.
+
+```sh
+(hbnb) update BaseModel a45ac806-1c59-4392-99a4-b15327584938 first_name "Emmanuel"
+(hbnb) show BaseModel a45ac806-1c59-4392-99a4-b15327584938
+[BaseModel] (a45ac806-1c59-4392-99a4-b15327584938) {'id': 'a45ac806-1c59-4392-99a4-b15327584938', 'created_at': datetime.datetime(2020, 2, 20, 9, 33, 40, 732983), 'updated_at': datetime.datetime(2020, 2, 20, 9, 33, 40, 733064), 'first_name': '"Emmanuel"'}
+(hbnb)
+
+```
+
+## Usage Count:
+With the count command, count the number of instances.
+
+```sh
+(hbnb) BaseModel.count()
+2
+(hbnb)
+```
+
+##Usage Destroy:
+With the Destroy command, instances are destroyed.
+
+```sh
+(hbnb) destroy BaseModel 346a5b73-d419-4c81-9bb9-39a84311cdac
+(hbnb) show BaseModel 346a5b73-d419-4c81-9bb9-39a84311cdac
+** no instance found **
+(hbnb)
+
+```
+
 ## Authors:
 [Julian Villegas](https://twitter.com/julianchok25)
 
