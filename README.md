@@ -100,7 +100,7 @@ With the count command, count the number of instances.
 (hbnb)
 ```
 
-##Usage Destroy:
+## Usage Destroy:
 With the Destroy command, instances are destroyed.
 
 ```sh
@@ -111,6 +111,30 @@ With the Destroy command, instances are destroyed.
 
 ```
 
+## non-interactive mode:
+Run the program passing argumments with pipes
+
+```sh
+PROMPT~> echo "help" | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb) 
+PROMPT~>
+PROMPT~> cat test_help
+help
+PROMPT~>
+PROMPT~> cat test_help | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb) 
+PROMPT~>
+```
 ## Authors:
 [Julian Villegas](https://twitter.com/julianchok25)
 
