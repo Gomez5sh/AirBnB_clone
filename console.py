@@ -154,6 +154,10 @@ class HBNBCommand(cmd.Cmd):
             # BaseModel valid_id, idsp[1] to get the id
             line = inst + ' ' + idsp[1]
             self.do_show(line)
+        elif n[1].startswith('destroy'):
+            idsp = n[1].split('"')
+            line = inst + ' ' + idsp[1]
+            self.do_destroy(line)
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
