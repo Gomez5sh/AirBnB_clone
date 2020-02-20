@@ -158,6 +158,10 @@ class HBNBCommand(cmd.Cmd):
             idsp = n[1].split('"')
             line = inst + ' ' + idsp[1]
             self.do_destroy(line)
+        elif n[1].startswith('update'):
+            sp = n[1].split('"')
+            line = inst + ' ' + sp[1] + ' ' + sp[3] + ' ' + sp[5]
+            self.do_update(line)
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
