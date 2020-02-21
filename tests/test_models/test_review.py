@@ -54,5 +54,5 @@ class test_Amenity(unittest.TestCase):
             self.assertEqual(type(self.review1.place_id), str)
             self.assertEqual(type(self.review1.user_id), str)
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     unittest.main()

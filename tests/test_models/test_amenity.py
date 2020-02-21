@@ -36,7 +36,8 @@ class test_Amenity(unittest.TestCase):
                                 self.amenity1.updated_at)
 
         def test_subclass(self):
-            self.assertTrue(issubclass(self.amenity1.__class__.BaseModel), True)
+                self.assertTrue(issubclass(self.amenity1.__class__.BaseModel),
+                                True)
 
         def test_attributes(self):
             self.assertTrue("name" in self.amenity1.__dict__)
@@ -47,5 +48,5 @@ class test_Amenity(unittest.TestCase):
         def test_strings(self):
             self.assertEqual(type(self.amenity1.name), str)
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     unittest.main()

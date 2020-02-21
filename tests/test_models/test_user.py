@@ -55,5 +55,5 @@ class test_user(unittest.TestCase):
         self.assertNotEqual(type(self.my_user.email), str)
         self.assertNotEqual(type(self.my_user.password), str)
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     unittest.main()

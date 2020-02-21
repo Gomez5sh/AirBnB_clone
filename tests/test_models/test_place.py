@@ -66,5 +66,5 @@ class test_Amenity(unittest.TestCase):
         self.assertEqual(type(self.place1.descrip_id), str)
         self.assertEqual(type(self.place1.amenity_id), str)
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     unittest.main()

@@ -48,5 +48,5 @@ class test_Amenity(unittest.TestCase):
     def test_strings(self):
         self.assertEqual(type(self.state1.name), str)
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     unittest.main()
