@@ -21,6 +21,31 @@ button {
     top: 15px;
 }
 
+.filters div {
+    display: inline-block;
+    position: relative;
+    height: 100%;
+    line-height: 5px;
+    width: 25%;
+}
+
+.locations {
+    border-right: 1px solid;
+    border-color: #DDDDDD;
+}
+
+.filters h3 {
+    font-weight: 600;
+    text-indent: 40px;
+    margin-top: 15px;
+}
+
+.filters h4 {
+    font-weight: 400;
+    font-size: 14px;
+    text-indent: 40px;
+}
+
 button:hover {
     opacity: 0.9;
 }
