@@ -34,3 +34,6 @@ Before starting, please fork or clone the repository AirBnB_clone from your part
     What is a selector
     How to compute CSS Specificity Value
     What are Box properties in CSS
+
+### Author:
+[Emmanuel Gomez - G5Ssh](https://twitter.com/Gomez5sh)
