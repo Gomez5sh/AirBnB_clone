@@ -79,7 +79,9 @@ button {
 .amenities:hover .popover,
 .locations:hover .popover {
     visibility: visible;
+    z-index: 100;
 }
+
 
 button:hover {
     opacity: 0.9;
